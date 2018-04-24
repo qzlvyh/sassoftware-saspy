@@ -14,17 +14,25 @@
 #  limitations under the License.
 #
 from __future__ import print_function
-from saspy.SASLogLexer import SASLogStyle, SASLogLexer
-from pygments.formatters import HtmlFormatter
-from pygments import highlight
-#from pdb import set_trace as bp
+
+try:
+   from saspy.SASLogLexer import SASLogStyle, SASLogLexer
+   from pygments.formatters import HtmlFormatter
+   from pygments import highlight
+except ImportError:
+   pass
 
 try:
     import pandas as pd
+except ImportError:
+    pass
+
+try:
     from IPython import display as dis
     from IPython.core.display import HTML
 except ImportError:
     pass
+
 
 
 class SASresults(object):
